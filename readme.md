@@ -1,4 +1,4 @@
-# badtls.io
+# tls.wbond.net
 
 A server that serves up various bad (and good) TLS certificates and
 configurations for the sake of testing.
@@ -12,26 +12,26 @@ configurations for the sake of testing.
 
 Various "good" configurations:
 
- - [domain-match.badtls.io:10000](https://domain-match.badtls.io:10000)
- - [wildcard-match.badtls.io:10001](https://wildcard-match.badtls.io:10001)
- - [san-match.badtls.io:10002](https://san-match.badtls.io:10002)
- - [required-auth.badtls.io:10003](https://required-auth.badtls.io:10003)
- - [optional-auth.badtls.io:10004](https://optional-auth.badtls.io:10004)
- - [dh1024.badtls.io:10005](https://dh1024.badtls.io:10005)
- - [no-san.badtls.io:10006](https://no-san.badtls.io:10006)
+ - [domain-match.tls.wbond.net:10000](https://domain-match.tls.wbond.net:10000)
+ - [wildcard-match.tls.wbond.net:10001](https://wildcard-match.tls.wbond.net:10001)
+ - [san-match.tls.wbond.net:10002](https://san-match.tls.wbond.net:10002)
+ - [required-auth.tls.wbond.net:10003](https://required-auth.tls.wbond.net:10003)
+ - [optional-auth.tls.wbond.net:10004](https://optional-auth.tls.wbond.net:10004)
+ - [dh1024.tls.wbond.net:10005](https://dh1024.tls.wbond.net:10005)
+ - [no-san.tls.wbond.net:10006](https://no-san.tls.wbond.net:10006)
 
 Various "bad" configurations:
 
- - [expired-1963.badtls.io:11000](https://expired-1963.badtls.io:11000)
- - [future.badtls.io:11001](https://future.badtls.io:11001)
- - [domain-mismatch.badtls.io:11002](https://domain-mismatch.badtls.io:11002)
- - [san-mismatch.badtls.io:11003](https://san-mismatch.badtls.io:11003)
- - [weak-sig.badtls.io:11004](https://weak-sig.badtls.io:11004)
- - [bad-key-usage.badtls.io:11005](https://bad-key-usage.badtls.io:11005)
- - [expired.badtls.io:11006](https://expired.badtls.io:11006)
- - [wildcard.mismatch.badtls.io:11007](https://wildcard.mismatch.badtls.io:11007)
- - [rc4.badtls.io:11008](https://rc4.badtls.io:11008)
- - [rc4-md5.badtls.io:11009](https://rc4-md5.badtls.io:11009)
+ - [expired-1963.tls.wbond.net:11000](https://expired-1963.tls.wbond.net:11000)
+ - [future.tls.wbond.net:11001](https://future.tls.wbond.net:11001)
+ - [domain-mismatch.tls.wbond.net:11002](https://domain-mismatch.tls.wbond.net:11002)
+ - [san-mismatch.tls.wbond.net:11003](https://san-mismatch.tls.wbond.net:11003)
+ - [weak-sig.tls.wbond.net:11004](https://weak-sig.tls.wbond.net:11004)
+ - [bad-key-usage.tls.wbond.net:11005](https://bad-key-usage.tls.wbond.net:11005)
+ - [expired.tls.wbond.net:11006](https://expired.tls.wbond.net:11006)
+ - [wildcard.mismatch.tls.wbond.net:11007](https://wildcard.mismatch.tls.wbond.net:11007)
+ - [rc4.tls.wbond.net:11008](https://rc4.tls.wbond.net:11008)
+ - [rc4-md5.tls.wbond.net:11009](https://rc4-md5.tls.wbond.net:11009)
 
 ## CA Certificate
 
@@ -76,7 +76,7 @@ docker run -d --name badtls \
 ```
 
 The endpoints are then reachable on the host at the same ports listed in the
-[Domains](#domains) section above, e.g. `https://domain-match.badtls.io:10000`.
+[Domains](#domains) section above, e.g. `https://domain-match.tls.wbond.net:10000`.
 
 The image runs natively on both `linux/amd64` and `linux/arm64` (Apple
 Silicon). It includes prebuilt `socat` binaries for each architecture, and

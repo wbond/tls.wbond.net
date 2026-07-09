@@ -56,7 +56,7 @@ if __name__ == '__main__':
     if regen_certs:
         domain = get_arg(2)
     if domain is None:
-        domain = 'badtls.io'
+        domain = 'tls.wbond.net'
 
     base_year = datetime.date.today().year
 
