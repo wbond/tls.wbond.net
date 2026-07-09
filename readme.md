@@ -52,6 +52,37 @@ To start nginx, execute:
 bash ./scripts/local.sh
 ```
 
+## Running with Docker
+
+A `Dockerfile` and `docker-entrypoint.sh` are included so the full set of
+bad (and good) TLS endpoints can be run on any machine with Docker
+installed, without installing nginx, socat or any other dependencies on the
+host.
+
+Build the image:
+
+```bash
+docker build -t badtls .
+```
+
+Run the container (mapping all endpoints to the host):
+
+```bash
+docker run -d --name badtls \
+  -p 9990-9992:9990-9992 \
+  -p 10000-10006:10000-10006 \
+  -p 11000-11009:11000-11009 \
+  badtls
+```
+
+The endpoints are then reachable on the host at the same ports listed in the
+[Domains](#domains) section above, e.g. `https://domain-match.badtls.io:10000`.
+
+The image runs natively on both `linux/amd64` and `linux/arm64` (Apple
+Silicon). It includes prebuilt `socat` binaries for each architecture, and
+`docker-entrypoint.sh` selects the matching one at runtime, so no emulation is
+required on either platform.
+
 ## Installing
 
 To install the nginx configuration, web files and certificates on a server,

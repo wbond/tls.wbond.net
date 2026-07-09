@@ -1,0 +1,8 @@
+.git/
+.gitignore
+scripts/
+bin/socat-darwin-*
+LICENSE
+readme.md
+**/__pycache__/
+**/*.pyc
