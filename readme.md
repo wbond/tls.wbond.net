@@ -62,17 +62,17 @@ host.
 Build the image:
 
 ```bash
-docker build -t badtls .
+docker build -t tls .
 ```
 
 Run the container (mapping all endpoints to the host):
 
 ```bash
-docker run -d --name badtls \
+docker run -d --name tls \
   -p 9990-9992:9990-9992 \
   -p 10000-10006:10000-10006 \
   -p 11000-11009:11000-11009 \
-  badtls
+  tls
 ```
 
 The endpoints are then reachable on the host at the same ports listed in the
@@ -92,21 +92,21 @@ invoke the following command:
 python scripts/install.py {nginx_conf_dir} {nginx_ssl_dir} {wwwroot_dir}
 ```
 
- - `{nginx_conf_dir}` should be a folder to copy the `badtls.conf` file into
+ - `{nginx_conf_dir}` should be a folder to copy the `tls.conf` file into
  - `{nginx_ssl_dir}` should be a folder in which to create a subfolder named
-   `badtls_certs`, which will contain all certificates, keys and related
+   `tls_certs`, which will contain all certificates, keys and related
    files
  - `{wwwroot_dir}` should be a folder in which to create a subfolder named
-   `badtls_wwwroot` which will contain the webfiles
+   `tls_wwwroot` which will contain the webfiles
 
-The values provided will be used to customize the `badtls.conf` file. All that
+The values provided will be used to customize the `tls.conf` file. All that
 is necessary will be to add an `include` directive into the main `nginx.conf`:
 
 ```
 http {
     ...
 
-    include  relative/path/to/badtls.conf;
+    include  relative/path/to/tls.conf;
 }
 ```
 

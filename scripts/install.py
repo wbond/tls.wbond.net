@@ -49,13 +49,13 @@ if __name__ == '__main__':
 
     root_dir = path.dirname(path.dirname(path.abspath(__file__)))
 
-    src_badtls_conf_path = path.join(root_dir, 'nginx', 'conf', 'badtls.conf')
+    src_tls_conf_path = path.join(root_dir, 'nginx', 'conf', 'tls.conf')
     src_certs_dir = path.join(root_dir, 'certs')
     src_wwwroot_dir = path.join(root_dir, 'nginx', 'wwwroot')
 
-    dest_badtls_conf_path = path.join(nginx_conf_dir, 'badtls.conf')
-    dest_certs_dir = path.join(nginx_ssl_dir, 'badtls_certs')
-    dest_wwwroot_dir = path.join(wwwroot_dir, 'badtls_wwwroot')
+    dest_tls_conf_path = path.join(nginx_conf_dir, 'tls.conf')
+    dest_certs_dir = path.join(nginx_ssl_dir, 'tls_certs')
+    dest_wwwroot_dir = path.join(wwwroot_dir, 'tls_wwwroot')
 
     if not path.isdir(nginx_conf_dir):
         message = (
@@ -76,11 +76,11 @@ if __name__ == '__main__':
         abort(message, 4)
 
     if not overwrite:
-        if path.exists(dest_badtls_conf_path):
+        if path.exists(dest_tls_conf_path):
             message = (
                 'Error: "{}" already exists, perhaps the "overwrite" parameter '
                 'was omitted?'
-            ).format(dest_badtls_conf_path)
+            ).format(dest_tls_conf_path)
             abort(message, 5)
 
         if path.exists(dest_certs_dir):
@@ -97,13 +97,13 @@ if __name__ == '__main__':
             ).format(dest_wwwroot_dir)
             abort(message, 7)
 
-    with open(src_badtls_conf_path, 'r', encoding='utf-8') as f:
-        badtls_conf = f.read()
-        badtls_conf = badtls_conf.replace('wwwroot', dest_wwwroot_dir)
-        badtls_conf = badtls_conf.replace('../../certs', dest_certs_dir)
+    with open(src_tls_conf_path, 'r', encoding='utf-8') as f:
+        tls_conf = f.read()
+        tls_conf = tls_conf.replace('wwwroot', dest_wwwroot_dir)
+        tls_conf = tls_conf.replace('../../certs', dest_certs_dir)
 
-    with open(dest_badtls_conf_path, 'w', encoding='utf-8') as f:
-        f.write(badtls_conf)
+    with open(dest_tls_conf_path, 'w', encoding='utf-8') as f:
+        f.write(tls_conf)
 
     if overwrite:
         if path.exists(dest_certs_dir):

@@ -22,12 +22,12 @@ fi
 if [[ $0 = ${0%/*} ]]; then
     SCRIPT=$(pwd)/$0
 fi
-BADTLS_DIR=$(cd ${SCRIPT%/*}/.. && pwd -P)
+TLS_DIR=$(cd ${SCRIPT%/*}/.. && pwd -P)
 
 MACHINE_TYPE=$(uname -sm | sed -e 's/ /-/' | tr '[:upper:]' '[:lower:]')
-SOCAT="$BADTLS_DIR/bin/socat-$MACHINE_TYPE"
+SOCAT="$TLS_DIR/bin/socat-$MACHINE_TYPE"
 
-$NGINX -p "$BADTLS_DIR/nginx" -c "$BADTLS_DIR/nginx/conf/nginx.conf" &
+$NGINX -p "$TLS_DIR/nginx" -c "$TLS_DIR/nginx/conf/nginx.conf" &
 NGINX_PID=$!
 
 sleep 1.5
