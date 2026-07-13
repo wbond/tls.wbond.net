@@ -52,16 +52,19 @@ def generate_certs(domain, base_year, quiet=False):
 
 if __name__ == '__main__':
     domain = get_arg(1)
-    regen_certs = domain == '--regen-certs'
-    if regen_certs:
+    regen_domain_certs = domain == '--regen-domain-certs'
+    regen_all_certs = domain == '--regen-certs'
+    if regen_domain_certs or regen_all_certs:
         domain = get_arg(2)
     if domain is None:
         domain = 'tls.wbond.net'
 
     base_year = datetime.date.today().year
 
-    if regen_certs:
+    if regen_domain_certs:
         generate_domain_certs(domain, base_year)
+    elif regen_all_certs:
+        generate_certs(domain, base_year)
     else:
         generate_keys()
         generate_certs(domain, base_year)
