@@ -25,10 +25,10 @@ def generate_client_certs(domain, base_year, quiet=False):
     builder = CertificateBuilder(
         {
             'country_name': 'US',
-            'state_or_province_name': 'Massachusetts',
-            'locality_name': 'Newbury',
-            'organization_name': 'TLS Client Certificates Limited',
-            'common_name': 'Good TLS Client Certificate',
+            'state_or_province_name': 'New Hampshire',
+            'locality_name': 'Plymouth',
+            'organization_name': 'Codex Non Sufficit LLC',
+            'common_name': 'Codex Non Sufficit TLS Client Certificate',
         },
         public_key
     )
@@ -50,8 +50,8 @@ def generate_client_certs(domain, base_year, quiet=False):
     builder = CertificateBuilder(
         {
             'country_name': 'US',
-            'state_or_province_name': 'Massachusetts',
-            'locality_name': 'Newbury',
+            'state_or_province_name': 'New Hampshire',
+            'locality_name': 'Plymouth',
             'organization_name': 'TLS Client Certificates Limited',
             'common_name': 'Expired TLS Client Certificate',
         },
@@ -75,8 +75,8 @@ def generate_client_certs(domain, base_year, quiet=False):
     builder = CertificateBuilder(
         {
             'country_name': 'US',
-            'state_or_province_name': 'Massachusetts',
-            'locality_name': 'Newbury',
+            'state_or_province_name': 'New Hampshire',
+            'locality_name': 'Plymouth',
             'organization_name': 'TLS Client Certificates Limited',
             'common_name': 'Future TLS Client Certificate',
         },
@@ -100,8 +100,8 @@ def generate_client_certs(domain, base_year, quiet=False):
     builder = CertificateBuilder(
         {
             'country_name': 'US',
-            'state_or_province_name': 'Massachusetts',
-            'locality_name': 'Newbury',
+            'state_or_province_name': 'New Hampshire',
+            'locality_name': 'Plymouth',
             'organization_name': 'TLS Client Certificates Limited',
             'common_name': 'Untrusted TLS Client Certificate',
         },
@@ -124,8 +124,8 @@ def generate_client_certs(domain, base_year, quiet=False):
     builder = CertificateBuilder(
         {
             'country_name': 'US',
-            'state_or_province_name': 'Massachusetts',
-            'locality_name': 'Newbury',
+            'state_or_province_name': 'New Hampshire',
+            'locality_name': 'Plymouth',
             'organization_name': 'TLS Client Certificates Limited',
             'common_name': 'Weak TLS Client Certificate',
         },
@@ -151,8 +151,8 @@ def generate_client_certs(domain, base_year, quiet=False):
     builder = CertificateBuilder(
         {
             'country_name': 'US',
-            'state_or_province_name': 'Massachusetts',
-            'locality_name': 'Newbury',
+            'state_or_province_name': 'New Hampshire',
+            'locality_name': 'Plymouth',
             'organization_name': 'TLS Client Certificates Limited',
             'common_name': 'Bad Key Usage TLS Client Certificate',
         },
@@ -178,8 +178,8 @@ def generate_client_certs(domain, base_year, quiet=False):
     builder = CertificateBuilder(
         {
             'country_name': 'US',
-            'state_or_province_name': 'Massachusetts',
-            'locality_name': 'Newbury',
+            'state_or_province_name': 'New Hampshire',
+            'locality_name': 'Plymouth',
             'organization_name': 'TLS Client Certificates Limited',
             'common_name': 'Revoked TLS Client Certificate',
         },

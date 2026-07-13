@@ -20,9 +20,9 @@ def generate_auth_cert(domain, base_year, quiet=False):
     builder = CertificateBuilder(
         {
             'country_name': 'US',
-            'state_or_province_name': 'Massachusetts',
-            'locality_name': 'Newbury',
-            'organization_name': 'Bad TLS Limited',
+            'state_or_province_name': 'New Hampshire',
+            'locality_name': 'Plymouth',
+            'organization_name': 'Codex Non Sufficit LLC',
             'common_name': 'required-auth.{}'.format(domain),
         },
         public_key

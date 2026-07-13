@@ -19,10 +19,10 @@ def generate_ca_cert(base_year, quiet=False):
     builder = CertificateBuilder(
         {
             'country_name': 'US',
-            'state_or_province_name': 'Massachusetts',
-            'locality_name': 'Newbury',
-            'organization_name': 'Bad TLS Limited',
-            'common_name': 'Bad TLS Limited RSA CA',
+            'state_or_province_name': 'New Hampshire',
+            'locality_name': 'Plymouth',
+            'organization_name': 'Codex Non Sufficit LLC',
+            'common_name': 'Codex Non Sufficit Bad RSA CA',
         },
         public_key
     )
