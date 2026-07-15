@@ -29,11 +29,11 @@ sleep 1.5
 # Port 10003 — required client certificate. nginx cannot require a client
 # certificate at the TLS layer, so socat terminates TLS with verify=1 and
 # proxies to the plain HTTP server on 9990.
-"$SOCAT" tcp:127.0.0.1:9990 openssl-listen:10003,reuseaddr,fork,cipher=EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH:DES-CBC3-SHA,cert=./certs/auth.crt,key=./certs/host.key,dhparam=./certs/dhparam.pem,cafile=./certs/ca.crt,verify=1 &
+"$SOCAT" tcp:127.0.0.1:9990 openssl-listen:10003,reuseaddr,fork,cipher=ECDHE-RSA-AES128-GCM-SHA256:EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH:DES-CBC3-SHA,cert=./certs/auth.crt,key=./certs/host.key,dhparam=./certs/dhparam.pem,cafile=./certs/ca.crt,verify=1 &
 SOCAT_AUTH_PID=$!
 
 # Port 11004 — weak signature (MD5) certificate.
-"$SOCAT" tcp:127.0.0.1:9992 openssl-listen:11004,reuseaddr,fork,cipher=EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH:DES-CBC3-SHA,cert=./certs/weak-sig.crt,key=./certs/host.key,dhparam=./certs/dhparam.pem,verify=0 &
+"$SOCAT" tcp:127.0.0.1:9992 openssl-listen:11004,reuseaddr,fork,cipher=ECDHE-RSA-AES128-GCM-SHA256:EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH:DES-CBC3-SHA,cert=./certs/weak-sig.crt,key=./certs/host.key,dhparam=./certs/dhparam.pem,verify=0 &
 SOCAT_MD5_PID=$!
 
 # Port 11008 — RC4 cipher only.
