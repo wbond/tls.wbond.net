@@ -17,6 +17,8 @@ from cert_future import generate_future_cert
 from cert_weak_sig import generate_weak_sig_cert
 from cert_auth import generate_auth_cert
 from cert_bad_key_usage import generate_bad_key_usage_cert
+from cert_dh512 import generate_dh512_cert
+from cert_self_signed import generate_self_signed_cert
 
 from certs_client import generate_client_certs
 
@@ -41,6 +43,8 @@ def generate_domain_certs(domain, base_year, quiet=False):
     generate_weak_sig_cert(domain, base_year, quiet)
     generate_auth_cert(domain, base_year, quiet)
     generate_bad_key_usage_cert(domain, base_year, quiet)
+    generate_dh512_cert(domain, base_year, quiet)
+    generate_self_signed_cert(domain, base_year, quiet)
     generate_client_certs(domain, base_year, quiet)
 
 
@@ -70,3 +74,4 @@ if __name__ == '__main__':
         generate_certs(domain, base_year)
         generate_dh_params('dhparam')
         generate_dh_params('dhparam-1024', size=1024)
+        generate_dh_params('dhparam-512', size=512)

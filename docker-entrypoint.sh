@@ -44,9 +44,14 @@ SOCAT_RC4_PID=$!
 "$SOCAT" tcp:127.0.0.1:9992 openssl-listen:11009,reuseaddr,fork,cipher=RC4-MD5,cert=./certs/wildcard.crt,key=./certs/host.key,dhparam=./certs/dhparam.pem,verify=0 &
 SOCAT_RC4_MD5_PID=$!
 
+# Port 11010 — 512-bit Diffie-Hellman parameters.
+"$SOCAT" tcp:127.0.0.1:9992 openssl-listen:11010,reuseaddr,fork,cipher=EDH,cert=./certs/dh512.crt,key=./certs/host.key,dhparam=./certs/dhparam-512.pem,verify=0 &
+SOCAT_DHPARAM_512_PID=$!
+
 cleanup() {
     kill "$NGINX_PID" "$SOCAT_AUTH_PID" "$SOCAT_MD5_PID" \
-         "$SOCAT_RC4_PID" "$SOCAT_RC4_MD5_PID" 2>/dev/null || true
+         "$SOCAT_RC4_PID" "$SOCAT_RC4_MD5_PID" \
+         "$SOCAT_DHPARAM_512_PID" 2>/dev/null || true
     exit 0
 }
 

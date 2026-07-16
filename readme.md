@@ -32,6 +32,8 @@ Various "bad" configurations:
  - [wildcard.mismatch.tls.wbond.net:11007](https://wildcard.mismatch.tls.wbond.net:11007)
  - [rc4.tls.wbond.net:11008](https://rc4.tls.wbond.net:11008)
  - [rc4-md5.tls.wbond.net:11009](https://rc4-md5.tls.wbond.net:11009)
+ - [dh512.tls.wbond.net:11010](https://dh512.tls.wbond.net:11010)
+ - [self-signed.tls.wbond.net:11011](https://self-signed.tls.wbond.net:11011)
 
 ## CA Certificate
 
@@ -71,7 +73,7 @@ Run the container (mapping all endpoints to the host):
 docker run -d --name tls \
   -p 9990-9992:9990-9992 \
   -p 10000-10006:10000-10006 \
-  -p 11000-11009:11000-11009 \
+  -p 11000-11011:11000-11011 \
   tls
 ```
 

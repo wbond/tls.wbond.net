@@ -44,6 +44,9 @@ SOCAT_RC4_PID=$!
 $SOCAT tcp:localhost:9992 openssl-listen:11009,reuseaddr,fork,cipher=RC4-MD5,cert=./certs/wildcard.crt,key=./certs/host.key,dhparam=./certs/dhparam.pem,verify=0 &
 SOCAT_RC4_MD5_PID=$!
 
+$SOCAT tcp:localhost:9992 openssl-listen:11010,reuseaddr,fork,cipher=EDH,cert=./certs/dh512.crt,key=./certs/host.key,dhparam=./certs/dhparam-512.pem,verify=0 &
+SOCAT_DHPARAM_512_PID=$!
+
 wait
 
 cleanup() {
@@ -52,6 +55,7 @@ cleanup() {
     kill $SOCAT_MD5_PID 2> /dev/null
     kill $SOCAT_RC4_PID 2> /dev/null
     kill $SOCAT_RC4_MD5_PID 2> /dev/null
+    kill $SOCAT_DHPARAM_512_PID 2> /dev/null
 }
 
 trap 'cleanup' 1 2 3 15 EXIT
