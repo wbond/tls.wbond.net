@@ -45,7 +45,7 @@ SOCAT_RC4_PID=$!
 SOCAT_RC4_MD5_PID=$!
 
 # Port 11010 — 512-bit Diffie-Hellman parameters.
-"$SOCAT" tcp:127.0.0.1:9992 openssl-listen:11010,reuseaddr,fork,cipher=ECDHE-RSA-AES128-GCM-SHA256:EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH:DES-CBC3-SHA,cert=./certs/dh512.crt,key=./certs/host.key,dhparam=./certs/dhparam-512.pem,verify=0 &
+"$SOCAT" tcp:127.0.0.1:9992 openssl-listen:11010,reuseaddr,fork,cipher=ECDHE-RSA-AES128-GCM-SHA256:EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH:DES-CBC3-SHA,cert=./certs/wildcard.crt,key=./certs/host.key,dhparam=./certs/dhparam-512.pem,verify=0 &
 SOCAT_DHPARAM_512_PID=$!
 
 cleanup() {

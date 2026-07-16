@@ -43,7 +43,6 @@ def generate_domain_certs(domain, base_year, quiet=False):
     generate_weak_sig_cert(domain, base_year, quiet)
     generate_auth_cert(domain, base_year, quiet)
     generate_bad_key_usage_cert(domain, base_year, quiet)
-    generate_dh512_cert(domain, base_year, quiet)
     generate_self_signed_cert(domain, base_year, quiet)
     generate_client_certs(domain, base_year, quiet)
 
