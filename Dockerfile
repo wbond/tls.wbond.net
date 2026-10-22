@@ -22,11 +22,15 @@ RUN chmod +x bin/socat-linux-x86_64 bin/socat-linux-aarch64 \
     && chmod 1777 nginx/logs nginx/tmp
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+COPY docker-healthcheck.sh /usr/local/bin/docker-healthcheck
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh /usr/local/bin/docker-healthcheck
 
 # Plain HTTP endpoints: 9990-9992
 # Good TLS endpoints:  10000-10006
 # Bad TLS endpoints:   11000-11011
 EXPOSE 9990 9991 9992 10000-10006 11000-11011
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD ["/usr/local/bin/docker-healthcheck"]
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]

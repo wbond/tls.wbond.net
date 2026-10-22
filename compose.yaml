@@ -1,0 +1,12 @@
+name: tls-wbond-net
+
+services:
+  tls:
+    build:
+      context: .
+    image: tls-wbond-net:${TLS_IMAGE_TAG:-latest}
+    restart: unless-stopped
+    ports:
+      - "9990-9992:9990-9992"
+      - "10000-10006:10000-10006"
+      - "11000-11011:11000-11011"
