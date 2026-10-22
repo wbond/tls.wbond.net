@@ -4,3 +4,6 @@ nginx/logs/nginx.pid
 nginx/tmp/*_temp
 .pyc
 __pycache__
+.DS_Store
+*.pyc
+*.pyo
